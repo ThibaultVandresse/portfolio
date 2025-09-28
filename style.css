@@ -589,6 +589,117 @@ html { scroll-behavior: smooth; }
   border-radius: 15px;
 }
 
+/* ========================
+   Responsive adjustments
+   ======================== */
+@media (max-width: 768px) {
+  /* General text scaling */
+  body {
+    font-size: 0.95rem;
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+
+  /* Navbar */
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    gap: 10px;
+  }
+
+  /* Hero */
+  #home h1 { font-size: 2rem; }
+  #home p { font-size: 1rem; }
+  #home img {
+    width: 120px;
+    height: 120px;
+  }
+  #home button {
+    width: 220px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  /* About */
+  #about p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  #about .links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Project grid */
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Project showcase */
+  .project-showcase {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 15px;
+  }
+  .project-video iframe {
+    max-width: 100%;
+  }
+  .project-info {
+    max-width: 100%;
+  }
+
+  /* Project details */
+  .detail-frame {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .detail-frame.reverse {
+    flex-direction: column;
+  }
+  .detail-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  .detail-text {
+    max-width: 100%;
+  }
+
+  /* Project sections */
+  .project-section,
+  .project-section.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .project-media img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Who I Am / Passion / Style */
+  .about-whoiam,
+  .about-passion,
+  .about-style {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .whoiam-image img,
+  .style-image img {
+    width: 160px;
+    height: 160px;
+  }
+  .passion-image img {
+    max-width: 200px;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
 
 }
 
