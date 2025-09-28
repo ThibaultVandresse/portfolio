@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Thibault Vandresse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About me</a>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home">
+    <div class="content">
+      <h1>Thibault Vandresse</h1>
+      <p>Game Designer</p>
+      <img src="ressources/Me.jpg" alt="Profile Picture">
+    </div>
+
+    <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">↓</button>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <p>Hello! I’m Thibault, a fan of games and an inspired creator since childhood. From media to media, I thrive to create games.</p>
+    <div class="links">
+      <a href="https://www.mediafire.com/file/5n7eqpiw0fnxdlm/VANDRESSE_THIBAULT_CV_RESUME.pdf/file">📄 Link to my CV</a>
+      <a href="https://www.mediafire.com/file/ncq5mbppv1r0ea5/Thibault_Vandresse_Portfolio_Motivation.pdf/file">📄 Link to my motivation letter</a>
+    </div>
+  </section>
+
+  <!-- Thin visual bar -->
+  <div id="visual-bar"></div>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Game Projects</h2>
+    <div class="project-grid">
+      <div class="project">
+        <h3>Double Climbing</h3>
+        <img src="ressources/DoubleClimbingIcon.png" alt="Double Climbing">
+        <a href="project-DoubleClimbing.html" class="project-btn">See more</a>
+      </div>
+      <div class="project">
+        <h3>De Leie Quest</h3>
+        <img src="ressources/DeLeieQuestIcon.png" alt="De Leie Quest">
+        <a href="project-DeLeieQuest.html" class="project-btn">See more</a>
+      </div>
+      <div class="project">
+        <h3>No Pain No Game</h3>
+        <img src="ressources/NoPainNoGameIcon.png" alt="NoPainNoGame">
+        <a href="https://max2002xam.itch.io/no-pain-no-game" class="project-btn">See more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <a href="index.html" class="icon" title="Home"><img src="ressources/home.png" alt="🏠" style="max-width:30px;"></a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/playlist?list=PLzeyVg9vpNN-USb8YZCzU4Qh8GKdVIrAS" target="_blank" class="icon" title="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24" onerror="this.outerHTML='▶️'">
+        <path d="M23.498 6.186a2.974 2.974 0 0 0-2.094-2.106C19.675 3.5 12 3.5 12 3.5s-7.675 0-9.404.58a2.974 2.974 0 0 0-2.094 2.106A31.5 31.5 0 0 0 .5 12a31.5 31.5 0 0 0 .002 5.814 2.974 2.974 0 0 0 2.094 2.106C4.325 20.5 12 20.5 12 20.5s7.675 0 9.404-.58a2.974 2.974 0 0 0 2.094-2.106A31.5 31.5 0 0 0 23.5 12a31.5 31.5 0 0 0-.002-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z"/>
+      </svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/thibault-vandresse-516aa1347/" target="_blank" class="icon" title="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24" onerror="this.outerHTML='💼'">
+        <path d="M20.452 20.452h-3.554v-5.568c0-1.327-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.666H9.354V9h3.413v1.561h.048c.476-.9 1.637-1.852 3.37-1.852 3.602 0 4.267 2.371 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.771v20.453C0 23.229.792 24 1.771 24h20.453C23.229 24 24 23.229 24 22.225V1.771C24 .771 23.229 0 22.225 0z"/>
+      </svg>
+    </a>
+  </footer>
+</body>
+</html>

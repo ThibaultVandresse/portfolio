@@ -1,0 +1,596 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: black; color: white; line-height: 1.5; }
+
+/* Navbar */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%;
+  display: flex; justify-content: flex-end; gap: 20px;
+  padding: 15px 40px;
+  background: linear-gradient(to bottom, #7f1d1d, #b91c1c);
+  z-index: 1000;
+}
+nav a {
+  color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;
+  transition: background 0.3s;
+}
+nav a.active, nav a:hover { background: white; color: black; }
+
+/* Sections */
+section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; }
+
+/* Hero */
+#home {
+  background: var(--Base-bg, url('ressources/HomeBase.gif')) no-repeat;
+  background-position: 130%;   /* align image left */
+  background-size: 105%; 
+  position: relative;
+  text-align: center;
+}
+#home::before {
+  content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.7);
+}
+#home .content { position: relative; z-index: 1; }
+#home h1 { font-size: 3rem; font-weight: bold; }
+#home p { font-size: 1.2rem; margin-top: 10px; }
+#home img {
+  margin-top: 30px; width: 160px; height: 160px;
+  border-radius: 50%; border: 4px solid white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+#home button {
+  position: absolute;       /* stick inside the #home section */
+  bottom: 0px;             /* push to bottom */
+  left: 50%;                /* center horizontally */
+  transform: translateX(-50%);
+  
+  width: 300px;              /* bigger button */
+  height: 80px;
+  
+  border: none;
+  border-radius: 20px 20px 0 0; /* round ONLY top corners */
+  
+  background: #b91c1c;
+  color: white;
+  font-size: 2rem;          /* larger arrow */
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: background 0.3s, transform 0.3s;
+}
+
+#home button:hover {
+  background: #7f1d1d;
+  transform: translateX(-50%) translateY(-2px) scale(1.05); 
+}
+
+/* About */
+#about { background: #991b1b; text-align: center; }
+#about p { max-width: 700px; margin: 20px auto; font-size: 1.2rem; }
+#about .links { display: flex; gap: 40px; margin-top: 30px; justify-content: center; }
+#about .links a {
+  text-decoration: none; color: white; font-size: 1rem;
+  display: flex; flex-direction: column; align-items: center;
+  transition: opacity 0.3s;
+}
+#about .links a:hover { opacity: 0.8; }
+
+/* Thin visual bar */
+#visual-bar {
+  background: url('ressources/Progress.png') no-repeat;
+  height: 200px;
+  width: 100%;
+}
+
+
+/* Projects */
+#projects { background: #7f1d1d; text-align: center; padding-top: 120px; }
+#projects h2 { font-size: 2rem; margin-bottom: 40px; }
+.project-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto;
+}
+.project {
+  background: #b91c1c; border-radius: 10px; padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5); text-align: left;
+}
+.project h3 { margin-bottom: 10px; font-size: 1.2rem; }
+	
+.project img {
+  width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Footer */
+footer {
+  background: #991b1b;
+  padding: 30px; text-align: center;
+  display: flex; justify-content: center; gap: 30px;
+}
+footer a {
+  color: white; font-size: 2rem; text-decoration: none;
+  transition: opacity 0.3s;
+}
+footer a:hover { opacity: 0.7; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Contact page background */
+.contact-section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: url('ressources/ContactBase.gif') center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+}
+
+.contact-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* Contact form */
+.contact-form-container {
+  background: rgba(255, 192, 203, 0.9);
+  padding: 20px;
+  border-radius: 15px 15px 0 0; /* only top corners rounded */
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.contact-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-container label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+}
+
+.contact-form-container button {
+  margin-top: 20px;
+  padding: 10px;
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact-form-container button:hover {
+  background: #444;
+}
+
+/* Other links box */
+.other-links {
+  background: rgba(255, 192, 203, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.other-links h2 {
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.link-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.link-item {
+  text-align: center;
+  margin: 10px;
+}
+
+.link-item i {
+  font-size: 2em;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.link-item p {
+  color: #000;
+  font-size: 0.9em;
+}
+
+/* Project showcase layout */
+.project-showcase {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: 60vh;
+  background: url('ressource/project_bg.jpg') center/cover no-repeat;
+  gap: 40px;
+}
+
+.project-video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.project-video iframe {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: 3px solid var(--accent-color, #800080); /* fallback: purple */
+}
+
+.project-info {
+  flex: 1;
+  background: var(--card-bg, rgba(128, 0, 128, 0.9)); /* fallback: purple card */
+  padding: 20px;
+  border-radius: 15px;
+  color: #111;
+  max-width: 500px;
+}
+
+.project-info h1 {
+  margin-bottom: 10px;
+}
+
+.project-info .platform {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.try-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.try-button:hover {
+  background: #555;
+  transform: translateY(-3px);
+}
+
+/* Special unavailable button */
+.try-button.unavailable {
+  background: gray;
+  cursor: not-allowed;
+}
+
+/* Tooltip styling */
+.try-button.unavailable .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 250px;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 120%; /* place tooltip above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+/* Show tooltip on hover */
+.try-button.unavailable:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Project details section */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 60px 10%;
+}
+
+/* Whole frame (image + text side by side) */
+.detail-frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.detail-frame.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image side */
+.detail-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+.detail-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Text frame (box) */
+.detail-text-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-text {
+  background: rgba(255, 255, 255, 0.85); /* text box visible */
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  color: #111;
+}
+
+.detail-text h2 {
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+/* Intro */
+.about-intro {
+  position: relative;
+  text-align: center;
+}
+.intro-gif {
+  width: 120%;
+  max-height: 500px;
+  display: flex;
+}
+.intro-title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px black;
+}
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+/* Who I Am — fixed layout: text left, image right (desktop), stack on small screens */
+.about-whoiam {
+  display: flex;
+  flex-direction: row;        /* row on desktop */
+  align-items: center;        /* vertical center */
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(to bottom, #5a0d0d, #8b1c1c, #5a0d0d);
+  color: white;
+  padding: 50px 20px;
+  /* Prevent accidental wrapping on desktop: */
+  flex-wrap: nowrap;
+}
+
+/* Text column: take remaining space, but shrink if needed */
+.whoiam-text {
+  flex: 1 1 60%;    /* grow, shrink, base 60% */
+  min-width: 0;     /* allow text to shrink correctly in flexbox */
+  /* optional inner padding */
+  padding-right: 12px;
+  padding-left: 20px;
+}
+
+/* Image column: fixed-ish width so it stays to the right on desktop */
+.whoiam-image {
+  flex: 0 0 600px;  /* do not shrink below 260px, keep image on the right */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image styling */
+.whoiam-image img {
+  width: 500px;
+  height: 500px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  display: block;
+}
+
+/* Responsive: below 900px the layout stacks and image appears below the text */
+@media (max-width: 900px) {
+  .about-whoiam {
+    flex-direction: column;  /* stack vertically */
+    align-items: flex-start; /* text left-align when stacked */
+    gap: 24px;
+  }
+  .whoiam-image {
+    order: 2;                /* image below text */
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .whoiam-image img {
+    width: 160px;
+    height: 160px;
+  }
+  .whoiam-text {
+    order: 1;
+  }
+}
+
+/* Passion */
+.about-passion {
+  display: flex;
+  flex-direction: row; /* force gif left, text right */
+  align-items: center;
+  padding: 50px 20px;
+  background: #5a0d0d; /* Solid color */
+  gap: 40px;
+}
+.passion-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.passion-image img {
+  max-width: 350px;
+  border-radius: 15px;
+}
+.passion-text {
+  flex: 2;
+  color: white;
+}
+
+/* My Style — force image on the RIGHT on desktop, stack on small screens */
+.about-style {
+  display: flex;
+  flex-direction: row;       /* horizontal on desktop */
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom, #8b1c1c, #b32424, #8b1c1c);
+}
+
+/* Ensure text is shown first, image second (so image ends up on the right) */
+.style-text {
+  order: 1;            /* text first */
+  flex: 2 1 60%;
+  min-width: 0;
+  color: white;
+  padding-right: 12px;
+}
+
+.style-image {
+  order: 2;            /* image second -> right side */
+  flex: 0 0 600px;     /* fixed-ish column so it stays to the right */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.style-image img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  display: block;
+}
+
+/* Responsive: stack vertically on smaller screens (image below text) */
+@media (max-width: 900px) {
+  .about-style {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    text-align: left;
+  }
+  .style-text { order: 1; width: 100%; }
+  .style-image { order: 2; flex: none; width: 100%; justify-content: flex-start; }
+  .style-image img { width: 160px; height: 160px; }
+}
+
+/* Project Section Base */
+.project-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-dark, #5a0d0d) 0%,   /* darker shade at top */
+    var(--color-light, #b32424) 50%, /* lighter shade in middle */
+    var(--color-dark, #5a0d0d) 100%  /* darker shade at bottom */
+  );
+  color: white;
+}
+
+/* Alternate layout with .reverse */
+.project-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.project-text {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  max-width: 500px;
+}
+
+.project-text h2 {
+  margin-bottom: 15px;
+}
+
+.project-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: white;
+  color: var(--color-dark, #444);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+.project-btn:hover {
+  background: var(--color-light, #444);
+  color: white;
+}
+
+.project-media {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-media img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+
+}
+
+
+
