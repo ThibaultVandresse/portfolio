@@ -19,21 +19,21 @@
   <section class="contact-section">
     <h1>Contact</h1>
     <div class="contact-form-container">
-      <form>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Value" required>
+<form id="contact-form">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" placeholder="Name" required>
 
-        <label for="surname">Surname</label>
-        <input type="text" id="surname" name="surname" placeholder="Value" required>
+  <label for="surname">Surname</label>
+  <input type="text" id="surname" name="surname" placeholder="Surname" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Value" required>
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" placeholder="Email" required>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Value" required></textarea>
+  <label for="message">Message</label>
+  <textarea id="message" name="message" placeholder="Message..." required></textarea>
 
-        <button type="submit">Submit</button>
-      </form>
+  <button type="submit">Submit</button>
+</form>
     </div>
 
     <!-- Other links -->
@@ -75,5 +75,27 @@
 
   <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  (function() {
+    emailjs.init("UHFoL0kGNPDdKWlFs"); 
+  })();
+
+  // Handle form submission
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_bwto1gm", "template_5cy6hk9", this)
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        this.reset(); // clear form
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("❌ Something went wrong. Please try again.");
+      });
+  });
+</script>
 </body>
 </html>
